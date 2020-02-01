@@ -1,0 +1,45 @@
+{
+    "name": "yosmy/payment-blackstone-gateway",
+    "description": "",
+    "require": {
+        "php": ">=7.2",
+        "ext-json": "*",
+        "yosmy/error": "@dev",
+        "yosmy/event": "@dev",
+        "yosmy/http": "@dev",
+        "yosmy/payment-gateway": "@dev"
+    },
+    "require-dev": {
+        "symsonte/framework": "@dev",
+        "symfony/debug": "^4.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yosmy\\Payment\\Gateway\\Blackstone\\": [
+                "src/card",
+                "src/charge",
+                "src/communication",
+                "src/customer",
+                "src/exception"
+            ]
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Yosmy\\Payment\\Gateway\\Blackstone\\Play\\": [
+                "play/setup",
+                "play/src/card",
+                "play/src/charge",
+                "play/src/customer"
+            ]
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://php.yosmy.com"
+        }
+    ],
+    "prefer-stable": true,
+    "minimum-stability": "dev"
+}
