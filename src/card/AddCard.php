@@ -51,8 +51,8 @@ class AddCard implements Gateway\AddCard
      */
     public function add(
         string $customer,
-        string $name,
         string $number,
+        string $name,
         string $month,
         string $year,
         string $cvc,
@@ -62,8 +62,8 @@ class AddCard implements Gateway\AddCard
             $response = $this->executeRequest->execute(
                 '/api/MonetraAdmin/GetTokenForCard',
                 [
-                    'NameOnCard' => $name,
                     'Account' => $number,
+                    'NameOnCard' => $name,
                     'expDate' => sprintf('%s%s', $month, $year),
                     'cv' => $cvc,
                     'zipCode' => $zip

@@ -22,7 +22,13 @@ class ProcessFieldApiException implements Gateway\ProcessApiException
 
         if (isset($response['ResponseCode'])) {
             if ($response['ResponseCode'] == 25) {
-                throw new Gateway\FieldException(null);
+                if (isset($response['verbiage'])) {
+                    if (strpos($response['verbiage'], 'LUHN/MOD10 CHECK ON ACCOUNT NUMBER FAILED') !== false) {
+                        throw new Gateway\IssuerException('number');
+                    } else if (strpos($response['verbiage'], 'INVALID ZIPCODE. NOT VALID FOR US OR CANADA') !== false) {
+                        throw new Gateway\IssuerException('zipcode');
+                    }
+                }
             }
         }
     }

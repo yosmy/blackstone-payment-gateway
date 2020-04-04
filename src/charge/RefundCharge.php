@@ -6,7 +6,9 @@ use Yosmy\Payment\Gateway;
 use Yosmy\ReportError;
 
 /**
- * @di\service()
+ * @di\service({
+ *     tags: ['yosmy.payment.gateway.refund_charge']
+ * })
  */
 class RefundCharge implements Gateway\RefundCharge
 {

@@ -6,7 +6,9 @@ use Yosmy\Payment\Gateway;
 use Yosmy\ReportError;
 
 /**
- * @di\service()
+ * @di\service({
+ *     tags: ['yosmy.payment.gateway.void_charge']
+ * })
  */
 class VoidCharge implements Gateway\VoidCharge
 {
