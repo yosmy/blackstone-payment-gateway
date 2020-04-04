@@ -8,7 +8,7 @@ use Yosmy\ReportError;
 /**
  * @di\service()
  */
-class RefundCharge implements Gateway\RefundCharge
+class VoidCharge implements Gateway\VoidCharge
 {
     /**
      * @var ExecuteRequest
@@ -35,18 +35,14 @@ class RefundCharge implements Gateway\RefundCharge
     /**
      * {@inheritDoc}
      */
-    public function refund(
-        string $id,
-        ?int $amount
+    public function void(
+        string $id
     ) {
-        $amount = number_format($amount / 100, 2, '.', '');
-
         try {
             $this->executeRequest->execute(
-                '/api/Transactions/DoRefund',
+                '/api/Transactions/DoVoid',
                 [
                     'ServiceTransactionNumber' => $id,
-                    'Amount' => $amount,
                     'UserTransactionNumber' => uniqid(),
                 ]
             );
