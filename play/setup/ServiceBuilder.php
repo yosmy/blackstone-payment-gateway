@@ -1,6 +1,6 @@
 <?php
 
-namespace Yosmy\Payment\Gateway\Blackstone\Test;
+namespace Yosmy\Payment\Gateway\Blackstone\Play;
 
 use Symsonte\Resource\DelegatorBuilder;
 use Symsonte\Resource\UnsupportedMetadataException;

@@ -1,6 +1,1 @@
-test/config/parameters.yml
-test/var/cache/*
-!test/var/cache/.gitkeep
-test/var/db/*
-!test/var/db/.gitkeep
 /vendor/

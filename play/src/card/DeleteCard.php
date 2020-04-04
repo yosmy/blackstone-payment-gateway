@@ -1,6 +1,6 @@
 <?php
 
-namespace Yosmy\Payment\Gateway\Blackstone\Test;
+namespace Yosmy\Payment\Gateway\Blackstone\Play;
 
 use Yosmy\Payment\Gateway;
 use Yosmy\Payment\Gateway\Blackstone;

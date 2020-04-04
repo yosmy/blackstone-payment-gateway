@@ -1,6 +1,6 @@
 <?php
 
-namespace Yosmy\Payment\Gateway\Blackstone\Test;
+namespace Yosmy\Payment\Gateway\Blackstone\Play;
 
 use Symsonte\Cli\Server\Input\Resolution\Resource\Loader;
 use Symsonte\Service\ConstructorDeclaration;

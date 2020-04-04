@@ -5,8 +5,7 @@ services:
     container_name: yosmy_blackstone_gateway_php
     volumes:
       - ./php/php.ini:/usr/local/etc/php/php.ini
-      - ../../src:/var/www/src
-      - ../src/:/var/www/test
+      - ../../:/var/www/
     networks:
       - backend
     environment:
@@ -14,6 +13,15 @@ services:
       PHP_XDEBUG_ENABLED: 1
       XDEBUG_CONFIG: "idekey=PHPSTORM remote_host=172.18.0.1"
     working_dir: /var/www
+  mongo:
+    image: yosmy/mongo
+    container_name: yosmy_blackstone_gateway_mongo
+    volumes:
+      - ../var/db:/data/db
+    ports:
+      - 27017:27017
+    networks:
+      - backend
 
 networks:
   backend:

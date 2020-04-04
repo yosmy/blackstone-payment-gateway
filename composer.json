@@ -13,7 +13,8 @@
     },
     "require-dev": {
         "symsonte/framework": "@dev",
-        "symfony/debug": "^4.4"
+        "symfony/debug": "^4.4",
+        "phpunit/phpunit": "^9"
     },
     "autoload": {
         "psr-4": {
@@ -28,10 +29,14 @@
     },
     "autoload-dev": {
         "psr-4": {
+            "Yosmy\\Payment\\Gateway\\Blackstone\\Play\\": [
+                "play/setup",
+                "play/src/card",
+                "play/src/charge",
+                "play/src/customer"
+            ],
             "Yosmy\\Payment\\Gateway\\Blackstone\\Test\\": [
                 "test/setup",
-                "test/src/card",
-                "test/src/charge",
                 "test/src/customer"
             ]
         }
