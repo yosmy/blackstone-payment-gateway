@@ -6,11 +6,9 @@ use Yosmy\Payment\Gateway;
 use Yosmy\ReportError;
 
 /**
- * @di\service({
- *     tags: ['yosmy.payment.gateway.refund_charge']
- * })
+ * @di\service()
  */
-class RefundCharge implements Gateway\RefundCharge
+class RequestSettlement
 {
     /**
      * @var ExecuteRequest
@@ -35,35 +33,18 @@ class RefundCharge implements Gateway\RefundCharge
     }
 
     /**
-     * {@inheritDoc}
+     * @throws Gateway\UnknownException
      */
-    public function refund(
-        string $id,
-        int $amount
-    ) {
-        $amount = number_format($amount / 100, 2, '.', '');
-
+    public function request() {
         try {
             $this->executeRequest->execute(
-                '/api/Transactions/DoRefund',
-                [
-                    'ServiceTransactionNumber' => $id,
-                    'Amount' => $amount,
-                    'UserTransactionNumber' => uniqid(),
-                ]
+                '/api/Transactions/DoSettlement',
+                []
             );
         } catch (Gateway\ApiException $e) {
             $this->reportError->report($e);
 
             throw new Gateway\UnknownException();
         }
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function identify()
-    {
-        return 'blackstone';
     }
 }
